@@ -4,15 +4,15 @@ var data = [];
 var names = [];
 
 function add (name, text) {
-  data.push({ name: name, text: text });
+  data.push({ name: name, text: text, id: i });
 }
 
 function list () {
   return _.cloneDeep(data);
 }
 
-function find (properties) {
-  return _.cloneDeep(_.filter(data, properties));
+function find (key, value) {
+  return _.cloneDeep(_.filter(data, [key, value]));
 }
 
 module.exports = { add: add, list: list, find: find };
@@ -41,4 +41,4 @@ for (var i = 0; i < 10; i++) {
 data[0].clothes = "suit";
 data[5].clothes = "dress";
 
-console.log(module.exports.find('clothes'));
+console.log(data);
